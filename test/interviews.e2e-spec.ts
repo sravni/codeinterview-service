@@ -50,6 +50,7 @@ describe('InterviewsModule (e2e)', () => {
             code: '',
             language: LANGUAGES.JAVASCRIPT,
             status: STATUSES.ACTIVE,
+            intervieweeName: '',
           }),
           interviewRepository.save({
             title: 'helloWorld',
@@ -57,6 +58,7 @@ describe('InterviewsModule (e2e)', () => {
             code: '',
             language: LANGUAGES.JAVASCRIPT,
             status: STATUSES.ACTIVE,
+            intervieweeName: '',
           }),
           interviewRepository.save({
             title: 'world',
@@ -64,6 +66,7 @@ describe('InterviewsModule (e2e)', () => {
             code: '',
             language: LANGUAGES.JAVASCRIPT,
             status: STATUSES.ACTIVE,
+            intervieweeName: '',
           }),
         ]);
         const res = await request(app.getHttpServer())
@@ -82,6 +85,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
         await interviewRepository.save({
           title: '2',
@@ -89,6 +93,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
         await interviewRepository.save({
           title: '3',
@@ -96,6 +101,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
         await interviewRepository.save({
           title: '4',
@@ -103,6 +109,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
 
         const res = await request(app.getHttpServer())
@@ -123,6 +130,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
         await interviewRepository.save({
           title: '2',
@@ -130,6 +138,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
         await interviewRepository.save({
           title: '3',
@@ -137,6 +146,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
         await interviewRepository.save({
           title: '4',
@@ -144,6 +154,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
 
         const res = await request(app.getHttpServer())
@@ -164,6 +175,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         });
 
         await request(app.getHttpServer())
@@ -178,6 +190,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: '',
         };
 
         const interview = await interviewRepository.save(createDto);
@@ -198,6 +211,7 @@ describe('InterviewsModule (e2e)', () => {
         code: '',
         language: LANGUAGES.JAVASCRIPT,
         status: STATUSES.ACTIVE,
+        intervieweeName: 'intervieweeName',
       };
 
       it('MUST return 201', async () => {
@@ -238,6 +252,7 @@ describe('InterviewsModule (e2e)', () => {
         code: '',
         language: LANGUAGES.JAVASCRIPT,
         status: STATUSES.ACTIVE,
+        intervieweeName: 'intervieweeName',
       };
 
       it('MUST return 200', async () => {
@@ -292,6 +307,7 @@ describe('InterviewsModule (e2e)', () => {
           code: '',
           language: LANGUAGES.JAVASCRIPT,
           status: STATUSES.ACTIVE,
+          intervieweeName: 'intervieweeName',
         });
 
         await request(app.getHttpServer())
@@ -314,6 +330,7 @@ describe('InterviewsModule (e2e)', () => {
       code: '',
       language: LANGUAGES.JAVASCRIPT,
       status: STATUSES.ACTIVE,
+      intervieweeName: 'intervieweeName',
     };
 
     describe('GET: /v1/interviews/:interviewId/ratings', () => {
