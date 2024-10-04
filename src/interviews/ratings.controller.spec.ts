@@ -80,51 +80,54 @@ describe('RatingsController', () => {
 
   describe('AND update() called', () => {
     it('MUST return RatingDto', async () => {
-      const mockRatingId = 'ratingId';
-      const mockInterview = plainToInstance(Interview, {
-        ratings: [plainToInstance(Rating, { id: mockRatingId })],
+      const mockInterviewId = 'interviewId';
+      const mockRating = plainToInstance(Rating, {
+        interviewId: mockInterviewId,
       });
 
       jest
-        .spyOn(interviewService, 'findOneById')
-        .mockImplementationOnce(() => Promise.resolve(mockInterview));
+        .spyOn(service, 'findOneById')
+        .mockImplementationOnce(() => Promise.resolve(mockRating));
 
       jest
         .spyOn(service, 'update')
-        .mockImplementationOnce(() => Promise.resolve(new Rating()));
+        .mockImplementationOnce(() => Promise.resolve(mockRating));
 
-      const rating = await controller.update(
-        'interviewId',
-        mockRatingId,
+      const dto = await controller.update(
+        mockInterviewId,
+        'ratingId',
         {} as any,
       );
 
-      expect(rating).toBeInstanceOf(RatingDto);
+      expect(dto).toBeInstanceOf(RatingDto);
     });
 
-    it('AND called with wrong ID MUST throw NotFoundException', async () => {
+    it('AND called with wrong rating ID MUST throw NotFoundException', async () => {
+      const mockInterviewId = 'interviewId';
+
       jest
-        .spyOn(interviewService, 'findOneById')
+        .spyOn(service, 'findOneById')
         .mockImplementationOnce(() => Promise.resolve(null));
 
       try {
-        await controller.update('wrong_id', 'ratingId', {} as any);
+        await controller.update(mockInterviewId, 'wrong_id', {} as any);
       } catch (exception) {
         expect(exception).toBeInstanceOf(NotFoundException);
       }
     });
 
-    it('AND called with wrong rating ID MUST throw NotFoundException', async () => {
-      const mockInterview = plainToInstance(Interview, {
-        ratings: [plainToInstance(Rating, { id: 'ratingId' })],
+    it('AND called with wrong interview ID MUST throw NotFoundException', async () => {
+      const mockInterviewId = 'interviewId';
+      const mockRating = plainToInstance(Rating, {
+        interviewId: mockInterviewId,
       });
 
       jest
-        .spyOn(interviewService, 'findOneById')
-        .mockImplementationOnce(() => Promise.resolve(mockInterview));
+        .spyOn(service, 'findOneById')
+        .mockImplementationOnce(() => Promise.resolve(mockRating));
 
       try {
-        await controller.update('interviewId', 'wrong_id', {} as any);
+        await controller.update('wrong_id', 'ratingId', {} as any);
       } catch (exception) {
         expect(exception).toBeInstanceOf(NotFoundException);
       }
