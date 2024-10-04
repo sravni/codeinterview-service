@@ -17,6 +17,7 @@ Out of the box:
 - Typescript
 - Go
 - C#
+- Python
 
 ## Getting Started
 
