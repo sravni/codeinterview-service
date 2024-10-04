@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { getRepositoryToken } from '@nestjs/typeorm';
 import { DeleteResult, ILike, Repository } from 'typeorm';
 
 import { InterviewsService } from './interviews.service';
 import { Interview } from './entities/interview.entity';
-import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('InterviewsService', () => {
   let service: InterviewsService;

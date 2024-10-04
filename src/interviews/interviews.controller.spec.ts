@@ -15,7 +15,6 @@ describe('InterviewsController', () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [InterviewsController],
       providers: [
-        InterviewsService,
         {
           provide: InterviewsService,
           useValue: {
@@ -40,9 +39,9 @@ describe('InterviewsController', () => {
         .spyOn(service, 'create')
         .mockImplementationOnce(() => Promise.resolve(new Interview()));
 
-      const interview = await controller.create({} as any);
+      const dto = await controller.create({} as any);
 
-      expect(interview).toBeInstanceOf(InterviewDto);
+      expect(dto).toBeInstanceOf(InterviewDto);
     });
   });
 
